@@ -9,6 +9,61 @@ UI Routes:
 /viewBears => This will render an EJS page that displays all bears.
 /post => This will render a form, capable of creating a new bear.
 
+#### Introducing MongoDB
+
+Mongodb is a non-relational database. It is really nice for javascript developers because it stores data in formats that we are used to working with. A single piece of data is known as a document. In our application here is what a document will look like:
+
+```js
+var someBear = {
+  name: "Winnie the Pooh"
+  species: "Honey Bear"
+  color: "golden brown"
+```
+
+The above is a single document, a bunch of these documents, or bears, is known as a collection. A collection is just an array full of obects.
+```
+var allBears = [someBear, anotherBear, moarBear]
+```
+When the EJS page show all bears is rendered, it will be displaying actual data from our bears collection.
+
+In order to be interactive with our database we will design a ___RESTful___ API
+
+The types of interactions we have with our database are described by ___HTTP___ verbs.
+
+####GET
+This verb is used for retrieving data.
+
+####POST
+This verb is used to `create` a new piece of data.
+
+####PUT
+This verb is used to edit.
+
+####DELETE
+An API that implements all of these methods is known as a ### C.R.U.D. API. Because you have the ability to Create, Read, Update, and Delete.
+
+----
+#### Mongoose
+We will be implementing routes using express `app.get` to apply our HTTP verbs that interact with our database. Mongoose is a tool layered on top of Mongo, that makes these routes much easier to implement. It is known as an ORM (Object Relational Mapper).
+
+A route that goes to our database, retrieves, all bears, and sends these bears back in JSON would look like so:
+```js
+app.get('/bears', function(req, res){
+  Bear.find(function(err, bear){
+  if(err){
+  return("error getting all bears from database")
+  }else{
+  res.json(bear)
+  }
+ });
+ ```
+
+Our database will be formatted very similar to an array full of objects.
+
+Our resources will be Bears.
+
+
+
 #### tools
 
 #### commit our changes over time.
