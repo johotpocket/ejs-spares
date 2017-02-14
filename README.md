@@ -91,6 +91,36 @@ Our database will be formatted very similar to an array full of objects.
 
 Our resources will be Bears.
 
+----
+#### Step one: EJS pages
+in this step we will make the appropriate EJS files, and make routes to server these files.
+Remembering that EJS pages must live in the views folder, create pages for index, view, and post.
+
+`mkdir views`
+
+`touch views/index.ejs views/view.ejs views/post.ejs`
+
+update each EJS page to have a basic HTML implementation. In `view.ejs` add some HTML for an unordered list of bears. This is where our bears will eventaully go. In `post.ejs` add a basic HTML form with input fields for bear name, species, and color.
+
+Next we will define our routes that are responsible for serving each one of our `EJS` pages.
+
+```
+// server.js
+
+app.get('/', function(req, res) {
+  res.render('index');
+  });
+
+app.get('/view', function(req, res) {
+  res.render('view');
+  });
+
+app.get('/post', function(req, res) {
+  res.render('post');
+  });
+
+```
+
 
 
 #### tools
