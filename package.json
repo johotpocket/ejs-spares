@@ -1,0 +1,25 @@
+{
+  "name": "ejs-bears",
+  "version": "1.0.0",
+  "description": "we are going to build an application which uses EJS to render different pages. The pages will be displaying 'bears'.\r For example:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johotpocket/ejs-spares.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johotpocket/ejs-spares/issues"
+  },
+  "homepage": "https://github.com/johotpocket/ejs-spares#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1"
+  }
+}
