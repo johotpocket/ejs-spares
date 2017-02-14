@@ -149,6 +149,15 @@ touch models/bear.js
 ```
 //models/bear.js
 
+var BearSchema = new mongoose.Schema({
+  //define schema here
+  name: String,
+  color: String,
+  species: String,
+});
+
+module.exports = mongoose.model('Bear', BearSchema);
+
 
 ```
 
@@ -212,6 +221,8 @@ Test your `GET` method first, it will break if you have an error in your code, o
 Then test the POST route. (don't forget to select the URL encoded option.)
 
 After you create a couple of items, test your GET method again.
+
+When your endpoints are working, commit your code.
 
 
 #### tools
