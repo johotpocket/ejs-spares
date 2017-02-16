@@ -357,3 +357,39 @@ in our <form> tag:
 ```
 
 we also added a button.
+
+#### EJS delete bear form
+We then added the ability to DELETE the bears
+
+1) make public directory in ejs-bears
+
+2) app.js in public
+
+3) add this code:
+
+```
+$(document).ready(function(){
+  console.log("page loaded")
+
+function deleteBear(e) {
+  e.preventDefault();
+  var bearId = $(this).attr('id');
+
+//the function that lets us delete the bears
+  $.ajax({
+    url: '/api/bears/' + bearId,
+    method: 'DELETE'
+  }).done(function(d){
+    console.log(d, "successfully eradicated bear!")
+    window.location = "/view";
+  })
+
+}
+
+$(".deleteBtn").on('click', deleteBear);
+
+
+
+});
+```
+this deletes the bear. This does what POSTMAN was doing, except inside our code.
