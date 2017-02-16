@@ -341,3 +341,19 @@ app.get('/view', function(req, res) {
 ```
 
 This finds all our bears in the collection and displays it on our "view" endpoint.
+
+#### EJS post bear form
+
+Our post endpoint now actually posts the bear we input
+
+in our <input/> tag we changed the `id` to `name` and then set it equal to all our values(req.body)
+
+example: name='name' and name='color' and name'species'
+
+in our <form> tag:
+
+```
+<form action="/api/bears" method="post">
+```
+
+we also added a button.
