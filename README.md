@@ -51,6 +51,8 @@ This verb is used for retrieving data.
 ####POST
 This verb is used to `create` a new piece of data.
 
+(when testing `POST` on Postman, go to body and then x-form-url-encoded, and fill out the forms there. make sure the parameters match your bear attributes.)
+
 ####PUT
 This verb is used to edit.
 
