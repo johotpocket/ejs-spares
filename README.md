@@ -294,7 +294,7 @@ app.put('/api/bears/:bear_id', function(req, res){
 
 Make sure you test all of your routes before committing your code.
 
-####Steps to implement a new resource:
+#### Steps to implement a new resource:
 
 1)make a new schema(don't forget to include your scehma in your routes file)
 Example of a schema:
@@ -306,8 +306,20 @@ Example of a schema:
 
 4)after that's working, do EJS stuff
 
-#### tools
+#### Refactoring server.js
 
-#### commit our changes over time.
+server.js is cluttered; it should only have configuration code (we should compartmentalize in other files)
 
-___Learning Node, Mongo, Mongoose, Express, and EJS___
+1) make a new directory called routes
+`mkdir routes`
+
+2) make a file in routes called `bears.js`
+`touch routes/bears.js`
+
+3) move all bear related code into the new js file
+
+4) require our new file in `server.js`
+`var bearsRouter = require('./routes/bears');`
+
+5) tell our application to use these routes
+`module.exports = Router`
