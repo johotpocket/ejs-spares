@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var bearsRouter = require('./routes/bears')
-var Cat = require('./models/cat');
+var catsRouter = require('./routes/cats')
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mis-ejs-bears');
 
@@ -27,20 +27,5 @@ app.get('/post', function(req, res) {
 });
 
 
-
-app.post('/api/cats', function(req, res){
-  var newCat = new Cat();
-  newCat.name = req.body.name;
-  newCat.talent = req.body.talent;
-  newCat.age = req.body.age;
-
-  newCat.save(function(err, data){
-    if(err){
-      console.log(err)
-    }else{
-      res.json(data)
-    }
-  })
-});
-
 app.use('/api/bears', bearsRouter)
+app.use('/api/cats', catsRouter)
