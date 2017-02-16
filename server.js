@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var Bear = require('./models/bear');
-var mongoose = require('mongoose')
+var Cat = require('./models/cat');
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mis-ejs-bears');
 
 app.use(bodyParser.json());
@@ -72,7 +73,6 @@ app.delete('/api/bears/:bear_id', function(req, res){
   })
 });
 
-
 app.put('/api/bears/:bear_id', function(req, res){
   Bear.findById(req.params.bear_id, function(err, bear){
     if(err){
@@ -92,3 +92,18 @@ app.put('/api/bears/:bear_id', function(req, res){
      }
     })
   })
+
+app.post('/api/cats', function(req, res){
+  var newCat = new Cat();
+  newCat.name = req.body.name;
+  newCat.talent = req.body.talent;
+  newCat.age = req.body.age;
+
+  newCat.save(function(err, data){
+    if(err){
+      console.log(err)
+    }else{
+      res.json(data)
+    }
+  })
+});

@@ -1,7 +1,7 @@
 #### EJS Bears
 
 #### Description
-we are going to build an application which uses EJS to render different pages. The pages will be displaying 'bears'.
+we are going to build an application which uses EJS (Embedded JavaScript: allows us to view javascript in our html pages) to render different pages. The pages will be displaying 'bears'.
 For example:
 
 UI Routes:
@@ -28,10 +28,10 @@ don't have homebrew?(https://brew.sh/)
 Mongodb is a non-relational database. It is really nice for javascript developers because it stores data in formats that we are used to working with. A single piece of data is known as a document. In our application here is what a document will look like:
 
 ```
-var someBear = {
-  name: "Winnie the Pooh"
-  species: "Honey Bear"
-  color: "golden brown"
+  var someBear = {
+    "name": "Winnie the Pooh"
+    "species": "Honey Bear"
+    "color": "golden brown"
 ```
 
 The above is a single document, a bunch of these documents, or bears, is known as a collection. A collection is just an array full of obects.
@@ -293,6 +293,18 @@ app.put('/api/bears/:bear_id', function(req, res){
 ```
 
 Make sure you test all of your routes before committing your code.
+
+####Steps to implement a new resource:
+
+1)make a new schema(don't forget to include your scehma in your routes file)
+Example of a schema:
+`var Bear = require("./models/bear")`
+
+2)implement API (CRUD) routes to expose our resource to our application
+
+3)test these routes with postman
+
+4)after that's working, do EJS stuff
 
 #### tools
 
