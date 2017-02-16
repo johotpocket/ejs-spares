@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var Bear = require('./models/bear')
 var bearsRouter = require('./routes/bears')
 var catsRouter = require('./routes/cats')
 var mongoose = require('mongoose');
@@ -15,11 +16,17 @@ var server = app.listen(3000, function(){
 });
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {name: "Mikaeus"});
 });
 
 app.get('/view', function(req, res) {
-  res.render('view');
+  Bear.find(function(err, allBears){
+    if(err){
+      console.log(err)
+    } else {
+      res.render('view', {bears: allBears})
+    }
+  })
 });
 
 app.get('/post', function(req, res) {

@@ -323,3 +323,21 @@ server.js is cluttered; it should only have configuration code (we should compar
 
 5) tell our application to use these routes
 `module.exports = Router`
+
+#### passing data to our EJS pages
+
+now we want to show data on our endpoints
+
+```
+app.get('/view', function(req, res) {
+  Bear.find(function(err, allBears){
+    if(err){
+      console.log(err)
+    } else {
+      res.render('view', {bears: allBears})
+    }
+  })
+});
+```
+
+This finds all our bears in the collection and displays it on our "view" endpoint.
