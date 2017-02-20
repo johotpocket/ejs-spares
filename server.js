@@ -35,6 +35,10 @@ app.get('/post', function(req, res) {
   res.render('post');
 });
 
+app.get('/about', function(req, res){
+  res.render('about', {name: "author"});
+});
+
 
 app.use('/api/bears', bearsRouter)
 app.use('/api/cats', catsRouter)
